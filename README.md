@@ -1,4 +1,4 @@
-# Ruby Scraper using HTTParty and Bybug
+# Ruby Scraper using HTTParty and Byebug
 
 ## Objectives
 
