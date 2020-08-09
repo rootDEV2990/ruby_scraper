@@ -14,7 +14,7 @@ def scraper
     div.each do |posting|
         jobs << job = { Title: posting.css('div.title').text, Desc: posting.css('h4.desc-oferta').text }
     end
-    jobs
+    p jobs[0...2]
 end
 
 scraper
