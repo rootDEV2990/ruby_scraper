@@ -56,4 +56,5 @@ puts Terminal::Table.new(
     }
 )
 
-
+p 'To jump to a new page enter it bellow, or enter a new query. Type exit to exit the script.'
+p search = gets.chomp
