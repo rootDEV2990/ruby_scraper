@@ -2,7 +2,7 @@
 require 'Nokogiri'
 require 'httparty'
 require 'terminal-table'
-require './table.rb'
+require './lib/table.rb'
 
 input = gets.chomp
 input = input.gsub(' ', '%20')
@@ -66,7 +66,7 @@ while searching == true
     if new_query == 'exit'
         searching = false
     elsif new_query.to_i == 0
-        input = new_query.to_s
+        input = new_query.to_s.gsub(' ', '%20')
         page = 1
     else
         page = new_query.to_i
