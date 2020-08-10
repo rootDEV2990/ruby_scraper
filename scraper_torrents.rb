@@ -1,7 +1,6 @@
 #!/usr/bin/env ruby
 require 'Nokogiri'
 require 'httparty'
-require 'terminal-table'
 require './lib/table.rb'
 
 input = gets.chomp
@@ -40,31 +39,19 @@ end
 
 scraper(input, page)
 
-puts Terminal::Table.new(
-    rows: [
-        [15385, page, 300, input.gsub('%20', ' ')],
-    ],
-    headings: [
-        'Total Results',
-        'Page Loaded',
-        'Total Pages',
-        'Searched'
-    ],
-    style: {
-        border_i: '*'
-    }
-)
+table_object = ScrapedTable.new(page, input)
+table_object.display_table
 
-searching = true
+crawling = true
 
-while searching == true
+while crawling == true
 
 
     p 'To jump to a new page enter it bellow, or enter a new query. Type exit to exit the script.'
     new_query = gets.downcase.chomp
     
     if new_query == 'exit'
-        searching = false
+        crawling = false
     elsif new_query.to_i == 0
         input = new_query.to_s.gsub(' ', '%20')
         page = 1
@@ -74,23 +61,10 @@ while searching == true
 
     scraper(input, page)
 
-    puts Terminal::Table.new(
-        rows: [
-            [15385, page, 300, input.gsub('%20', ' ')],
-        ],
-        headings: [
-            'Total Results',
-            'Page Loaded',
-            'Total Pages',
-            'Searched'
-        ],
-        style: {
-            border_i: '*'
-        }
-    )
+    table_object = ScrapedTable.new(page, input)
+    table_object.display_table
 end
 
-p'*/*/*/*/*/*/*/*/**/*/*/*/*/*'
-
-table_object = ScrapedTable.new(page, input)
-table_object.display_table
+p '/*/ Thank you for using Ruby Today /*/'
+p '/*/ Made with Ruby BC its AWESOME! /*/'
+p "/*/ With us you can skip the Ads \u{1f600}/*/"
