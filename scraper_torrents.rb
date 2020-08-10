@@ -2,14 +2,21 @@
 require 'Nokogiri'
 require 'httparty'
 require 'terminal-table'
-require 'byebug'
+require './table.rb'
 
+input = gets.chomp
+input = input.gsub(' ', '%20')
+page = 1
 
-def scraper
-    url = "https://katcr.to/usearch/rick%20and%20morty/"
+def scraper(query, page)
+    if page == 1
+        page = ''
+    else
+        page = '/' + page.to_s
+    end
+    url = "https://katcr.to/usearch/" + query + page + "/"
     raw_data = HTTParty.get(url)
     format_page = Nokogiri::HTML(raw_data)
-    #byebug
     item_count = 0 
     div = format_page.css('table.data')
     table = div.css('tbody')
@@ -29,21 +36,13 @@ def scraper
         p "https://katcr.to#{url[0]}"
         p '***********************************************'
     end
-
-    
-
-    #∫torrents = Array.new
-    #∫div.each do |li|
-        #∫torrents << torrent = { Title: li.css('span.item-title#reference a').text, Desc: li.css('span.item-icons#reference a').text }
-    #∫end
-    #∫p torrents[0...2]
 end
 
-scraper
+scraper(input, page)
 
 puts Terminal::Table.new(
     rows: [
-        [15385, 1, 300, search = 'Rick and Morty'],
+        [15385, page, 300, input.gsub('%20', ' ')],
     ],
     headings: [
         'Total Results',
@@ -56,5 +55,40 @@ puts Terminal::Table.new(
     }
 )
 
-p 'To jump to a new page enter it bellow, or enter a new query. Type exit to exit the script.'
-p search = gets.chomp
+searching = true
+
+while searching == true
+
+
+    p 'To jump to a new page enter it bellow, or enter a new query. Type exit to exit the script.'
+    new_query = gets.downcase.chomp
+    
+    if new_query == 'exit'
+        searching = false
+    elsif new_query.to_i == 0
+        input = new_query.to_s
+        page = 1
+    else
+        page = new_query.to_i
+    end
+
+    scraper(input, page)
+
+    puts Terminal::Table.new(
+        rows: [
+            [15385, page, 300, input.gsub('%20', ' ')],
+        ],
+        headings: [
+            'Total Results',
+            'Page Loaded',
+            'Total Pages',
+            'Searched'
+        ],
+        style: {
+            border_i: '*'
+        }
+    )
+end
+
+p'*/*/*/*/*/*/*/*/**/*/*/*/*/*'
+
