@@ -41,3 +41,19 @@ end
 
 scraper
 
+puts Terminal::Table.new(
+    rows: [
+        [15385, 1, 300, search = 'Rick and Morty'],
+    ],
+    headings: [
+        'Total Results',
+        'Page Loaded',
+        'Total Pages',
+        'Searched'
+    ],
+    style: {
+        border_i: '*'
+    }
+)
+
+
