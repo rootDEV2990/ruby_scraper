@@ -92,3 +92,5 @@ end
 
 p'*/*/*/*/*/*/*/*/**/*/*/*/*/*'
 
+table_object = ScrapedTable.new(page, input)
+table_object.display_table
