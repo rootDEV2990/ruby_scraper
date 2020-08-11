@@ -20,11 +20,11 @@ With is basic and simple structure you too can have a scraper out their fetching
 ├── GemFile
 │   └── gems required
 ├── bin
-    └── main.rb
+│   └── main.rb
 ├── lib
-    └── scraper.rb
-    └── table.rb
-
+│   └── scraper.rb
+│   └── table.rb
+│  
 ├── .rubocop.yml
 ├── .stickler.yml
 ├── README.md
