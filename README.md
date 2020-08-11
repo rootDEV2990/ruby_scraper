@@ -18,9 +18,12 @@ With is basic and simple structure you too can have a scraper out their fetching
 ```bash
 
 ├── GemFile
-│   └── gem required
-├── Ruby
+│   └── gems required
+├── bin
+    └── main.rb
+├── lib
     └── scraper.rb
+    └── table.rb
 
 ├── .rubocop.yml
 ├── .stickler.yml
