@@ -10,7 +10,9 @@
 
 ## Overview
 
-Have you ever wanted to pull data to automate database creation. Now with ruby you can! Here is an open source scraper I made with Ruby to demo now with your terminal you can scrape public data off sites. This script when activated will make a get request with HTTParty and format with Nokogiri. I then display it in a terminal but as you can imagine with ruby the sky is the limit. Easily build scrapers to populate databases via scripts...just a little glimps at Rubys potential. Run this in your terminal to navigate for torrents without the anoying pop up ads. Its completly open source so feel free to fork and imporve if you want to. Ideas for improvments anyone? Feel free to open a PR. Check out the demo on youtube ... 
+Have you ever wanted to pull data to automate database creation. Now with ruby you can! Here is an open source scraper I made with Ruby to demo now with your terminal you can scrape public data off sites. This script when activated will make a get request with HTTParty and format with Nokogiri. I then display it in a terminal but as you can imagine with ruby the sky is the limit. Easily build scrapers to populate databases via scripts...just a little glimps at Rubys potential. Run this in your terminal to navigate for torrents without the anoying pop up ads. Its completly open source so feel free to fork and imporve if you want to. Ideas for improvments anyone? Feel free to open a PR. Check out the demo on youtube ...
+
+ https://youtu.be/jvsxBfArJBU
 
 ### Your Uncomplicated Ruby Scraper!
 
