@@ -49,5 +49,5 @@ app = FetchTorrents.new
 app.display_results
 p '/*/ Thank you for using Ruby Today /*/'
 p '/*/ Made with Ruby BC its AWESOME! /*/'
-p "/*/ Skip the Ads with your terminal/*/"
+p '/*/ Skip the Ads with your terminal/*/'
 p "/*/ Made by rootDEV2990  #codeIT \u{1f600}/*/"
