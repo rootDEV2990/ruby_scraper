@@ -10,5 +10,9 @@ describe Scraper do
       expect(scraper.url).to eq('https://katcr.to/usearch/rick%20and%20morty/2/')
     end
   end
-  
+  describe '.results_counter' do
+    it 'Checks number of results available' do
+      expect(scraper.results_counter).to eq(634)
+    end
+  end
 end
