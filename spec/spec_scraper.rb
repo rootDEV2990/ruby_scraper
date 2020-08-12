@@ -23,5 +23,13 @@ describe Scraper do
       expect(first_torrent[0].to_i).to eq(2)
     end
   end
+  describe '.extract_torrent' do
+    it 'Displays name of torrent of list item' do
+      torrent_list = scraper.extract_torrent
+      first_torrent = []
+      torrent_list[1].each { |item| first_torrent << item }
+      expect(first_torrent[1]).to eq("Rick and Morty S04E03 720p WEBRip x264-TBS eztv \n")
+    end
+  end
   
 end
