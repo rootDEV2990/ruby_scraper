@@ -1,6 +1,4 @@
-# require './bin/main.rb'
 require './lib/scraper.rb'
-require './lib/table.rb'
 
 describe Scraper do
   let(:scraper) { Scraper.new('rick%20and%20morty', 2) }
@@ -37,22 +35,6 @@ describe Scraper do
       first_torrent = []
       torrent_list[1].each { |item| first_torrent << item }
       expect(first_torrent[5]).to eq("TV  >\n")
-    end
-  end
-end
-
-describe ScrapedTable do
-  let(:table) { ScrapedTable.new(1, 'rick%20and%20morty', 634) }
-
-  describe '.pages_index' do
-    it 'devides the total of results for page panning' do
-      expect(table.pages_index).to eq(31)
-    end
-  end
-
-  describe '.user_query' do
-    it 'Extracts user query from url and makes human readable.' do
-      expect(table.user_query).to eq('rick and morty')
     end
   end
 end
