@@ -15,4 +15,13 @@ describe Scraper do
       expect(scraper.results_counter).to eq(634)
     end
   end
+  describe '.extract_torrent' do
+    it 'Displays counter of list item' do
+      torrent_list = scraper.extract_torrent
+      first_torrent = []
+      torrent_list[1].each { |item| first_torrent << item }
+      expect(first_torrent[0].to_i).to eq(2)
+    end
+  end
+  
 end
