@@ -1,7 +1,7 @@
 require 'terminal-table'
 
 class ScrapedTable
-  attr_accessor :page, :input
+  attr_accessor :page, :input, :total
 
   def initialize(page, input, total)
     @page = page
