@@ -7,12 +7,21 @@ class ScrapedTable
     @page = page
     @input = input
     @total = total
+    @index = 0
+  end
+
+  def pages_index
+    @index = @total / 20
+  end
+
+  def user_query
+    @input.gsub('%20', ' ')
   end
 
   def display_table
     puts Terminal::Table.new(
       rows: [
-        [@total, @page, (@total / 20), @input.gsub('%20', ' ')]
+        [@total, @page, pages_index, user_query]
       ],
       headings: [
         'Total Results',

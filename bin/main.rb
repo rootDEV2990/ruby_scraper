@@ -35,7 +35,7 @@ class FetchTorrents < Scraper
 
   def display_results
     scrape_site = Scraper.new(@input, @page)
-    scrape_site.scraper
+    puts scrape_site.extract_torrent
     @total = scrape_site.total_results
     table_object = ScrapedTable.new(@page, @input, @total)
     table_object.display_table
