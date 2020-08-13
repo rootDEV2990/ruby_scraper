@@ -13,7 +13,7 @@ def app
   display_results(page, input)
 end
 
-def crawling_site(total, input, page, table)
+def crawling_site(total, input, page, tables)
   loop do
     p 'To jump to a new page enter it bellow, or enter a new query. Press Ctrl+C on your keyboard to exit.'
     new_query = gets.downcase.chomp
@@ -37,8 +37,8 @@ def display_results(page, input)
   puts scrape_site.extract_torrent
   total = scrape_site.total_results
   table_object = ScrapedTable.new(page, input, total)
-  table = table_object.display_table
-  crawling_site(total, input, page, table)
+  tables = table_object.display_table
+  crawling_site(total, input, page, tables)
 end
 
 app
