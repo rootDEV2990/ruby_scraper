@@ -45,7 +45,7 @@ def display_results(page, input)
   total = scrape_site.total_results
   table_object = ScrapedTable.new(page, input, total)
   puts table_object.display_table
-  p 'To jump to a new page enter it bellow, or enter a new query. Press Ctrl+C on your keyboard to exit.'
+  p 'To jump to a new page enter it bellow, or enter a new query. Type exit and hit enter to stop the script.'
   total
 end
 
