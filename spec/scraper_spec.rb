@@ -3,7 +3,7 @@ require './lib/scraper.rb'
 describe Scraper do
   before(:all) do
     @scraper = Scraper.new('rick%20and%20morty', 2)
-    @scraper.get_data
+    @scraper.data
   end
 
   describe '.initialize' do
@@ -21,7 +21,7 @@ describe Scraper do
     end
     it 'Check that counter is built dynamicly' do
       new_session = Scraper.new('modern%20family', 2)
-      new_session.get_data
+      new_session.data
       expect(@scraper.results_counter).to_not eq(new_session.results_counter)
     end
   end

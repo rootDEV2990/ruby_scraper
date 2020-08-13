@@ -33,11 +33,11 @@ end
 
 def display_results(page, input)
   scrape_site = Scraper.new(input, page)
-  scrape_site.get_data
+  scrape_site.data
   puts scrape_site.extract_torrent
   total = scrape_site.total_results
   table_object = ScrapedTable.new(page, input, total)
-  table_object.display_table
+  puts table_object.display_table
   crawling_site(total, input, page)
 end
 

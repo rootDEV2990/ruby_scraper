@@ -15,10 +15,9 @@ class Scraper
     @url = 'https://katcr.to/usearch/' + @query + @page + '/'
     @item_count = 0
     @total_results = 0
-    
   end
 
-  def get_data
+  def data
     @raw_data = HTTParty.get(@url)
     @format_page = Nokogiri::HTML(@raw_data)
     div = @format_page.css('table.data')
