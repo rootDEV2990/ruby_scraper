@@ -1,8 +1,8 @@
-require 'Nokogiri'
+require 'nokogiri'
 require 'httparty'
 
 class Scraper
-  attr_accessor :query, :page, :total_results, :url
+  attr_reader :total_results
 
   def initialize(query, page)
     @page = page
@@ -13,10 +13,14 @@ class Scraper
               '/' + @page.to_s
             end
     @url = 'https://katcr.to/usearch/' + @query + @page + '/'
-    @raw_data = HTTParty.get(@url)
-    @format_page = Nokogiri::HTML(@raw_data)
     @item_count = 0
     @total_results = 0
+    
+  end
+
+  def get_data
+    @raw_data = HTTParty.get(@url)
+    @format_page = Nokogiri::HTML(@raw_data)
     div = @format_page.css('table.data')
     @table = div.css('tbody')
   end

@@ -1,8 +1,8 @@
 #!/usr/bin/env ruby
-require 'Nokogiri'
+require 'nokogiri'
 require 'httparty'
-require './lib/table.rb'
-require './lib/scraper.rb'
+require_relative '../lib/table.rb'
+require_relative '../lib/scraper.rb'
 
 def app
   p '/-/-/-/-/Search Torrents with Ruby and skip the pop-ups./-/-/-/-/'
@@ -13,9 +13,8 @@ def app
   display_results(page, input)
 end
 
-def crawling_site(total, input, page)
-  crawling = true
-  while crawling == true
+def crawling_site(total, input, page, table)
+  loop do
     p 'To jump to a new page enter it bellow, or enter a new query. Press Ctrl+C on your keyboard to exit.'
     new_query = gets.downcase.chomp
     if new_query.to_i.zero?
@@ -34,11 +33,12 @@ end
 
 def display_results(page, input)
   scrape_site = Scraper.new(input, page)
+  scrape_site.get_data
   puts scrape_site.extract_torrent
   total = scrape_site.total_results
   table_object = ScrapedTable.new(page, input, total)
-  table_object.display_table
-  crawling_site(total, input, page)
+  puts table = table_object.display_table
+  crawling_site(total, input, page, table)
 end
 
 app
