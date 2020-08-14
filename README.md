@@ -1,6 +1,6 @@
 # Ruby Scraper using HTTParty and Nokogiri
 
-![screenshot](./app_screenshot_scraper.png)
+![screenshot](./img/app_screenshot_scraper.png)
 
 ## Objectives
 
