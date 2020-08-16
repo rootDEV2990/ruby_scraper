@@ -4,8 +4,8 @@
 
 ## Objectives
 
-1. Target URLS and get DATA
-2. Formats data so you can filter via css
+1. Target URLS and get DATA.
+2. Formats data so you can filter via css.
 3. Displays scraped data in terminal.
 
 ## Overview
